@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  myvol:
+
+networks:
+  mynet:
+
+services:
+  app:
+    container_name: myapp
+    image: rickleo88/nw-server:latest
+    environment:
+      - DB_HOST=mydb
+    ports:
+      - 80:3000
+    networks:
+     - mynet
+  db:
+    container_name: mydb
+    image: stackupiss/northwind-db:v1
+    volumes:
+      - myvol:/var/lib/mysql
+    networks:
+     - mynet
