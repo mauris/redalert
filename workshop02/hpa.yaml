@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: app-hpa
+  namespace: myspace
+  labels:
+    name: app-hpa
+    type: hpa
+    project: northwind
+
+spec:
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: app-deploy
