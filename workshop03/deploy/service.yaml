@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-svc
+  namespace: weather
+  
+spec:
+  selector:
+    app: stackup-weather-app
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000

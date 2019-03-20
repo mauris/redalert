@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name:  weather-svc-entry
+  namespace: weather
+
+spec:
+  hosts:
+  - "api.openweathermap.org"
+  ports:
+  - number: 80
+    protocol: http
+    name : http
+  - number: 443
+    protocol: https
+    name : https
+  location: MESH_EXTERNAL
+  resolution: DNS

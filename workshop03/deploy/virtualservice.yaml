@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: weather-vir-svc-1
+  namespace: weather
+spec:
+  hosts:
+  - "weather.178.128.140.88.nip.io"
+  gateways:
+  - weather-ingress
+  http:
+  - route:
+    - destination:
+        host: weather-svc

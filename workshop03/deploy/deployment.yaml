@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+
+metadata:
+  name: stackup-weather-deployment
+  namespace: weather
+
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stackup-weather-app
+    spec:
+      containers:
+        - name: stackup-weather-app
+          image: stackupiss/weather:v1
+          imagePullPolicy: Always
+          env:
+            - name: APP_ID
+              value: <INSERT API KEY HERE>
+            - name: APP_DEFAULT_CITY
+              value: singapore
+          ports:
+            - containerPort: 3000

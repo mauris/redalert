@@ -1,0 +1,13 @@
+Get API key.
+
+Run to deploy everything in deploy folder:
+
+    kubectl apply -f ./deploy
+
+To run with sidecar, perform injection for deployment.yaml:
+
+    istioctl kube-inject -f deploy/deployment.yaml > deploy/deployment-with-sidecar.yaml
+
+Use the following command to monitor deployment
+
+    watch kubectl get po,svc,deploy -n weather
