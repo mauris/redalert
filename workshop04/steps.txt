@@ -1,0 +1,24 @@
+To create a Helm application template:
+  helm create weather-app
+
+To install the Helm template to Kubernetes:
+  helm install weather-app --name weather-v1
+
+To send changes:
+  helm upgrade weather-v1 weather-app
+
+To show status of Helm application:
+  helm status weather-v1 --debug
+
+To port-forward and view the deployed Helm application:
+  kubectl port-forward weather-v1-weather-app-585898449f-nr45g 3000:3000
+
+To delete/purge a Helm application:
+  helm del --purge weather-v1
+
+To get Istio LoadBalancer public IP address:
+  kubectl get svc -n istio-system
+
+To install with Istio for Singapore and London defaults:
+  helm install weather-app --name weather-sg --debug
+  helm install weather-app --name weather-ldn --debug

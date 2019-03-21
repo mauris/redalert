@@ -1,0 +1,7 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ include "weather-app.fullname" . }}-dr1
+  namespace: default
+spec:
+  host: {{ include "weather-app.fullname" . }}
